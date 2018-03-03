@@ -9,9 +9,9 @@ setuptools.setup(
     python_requires='>=3.6',
     # via environment variables, in which case I've tested with 15.0.4
     # "x11_hash" package (1.4) is required to sync DASH network.
-    install_requires=['plyvel', 'pylru', 'aiohttp >= 1'],
+    install_requires=['plyvel == 0.9', 'pylru', 'aiohttp >= 1', 'x11_hash', 'uvloop', 'scrypt'],
     packages=setuptools.find_packages(exclude=['tests']),
-    description='ElectrumX Server',
+    description='ElectrumX_Assetchain Server',
     author='Neil Booth',
     author_email='kyuupichan@gmail.com',
     license='MIT Licence',
