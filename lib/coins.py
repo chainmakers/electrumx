@@ -403,14 +403,14 @@ class BitcoinCash(BitcoinMixin, Coin):
     TX_COUNT_HEIGHT = 479636
     TX_PER_BLOCK = 50
     PEERS = [
-        'electroncash.bitcoinplug.com s t',
+        'electroncash.bitcoinplug.com s t',  # 1 strike
         'electrum-abc.criptolayer.net s50012',
         'electroncash.cascharia.com s50002',
         'bch.arihanc.com t52001 s52002',
-        'mash.1209k.com s t',
-        'h.1209k.com s t',
+        'jelectrum-cash.1209k.com s t',
         'abc.vom-stausee.de t52001 s52002',
         'abc1.hsmiths.com t60001 s60002',
+        'electroncash.checksum0.com s t',
     ]
 
 
@@ -881,6 +881,22 @@ class Zcash(EquihashMixin, Coin):
     RPC_PORT = 8232
     REORG_LIMIT = 800
 
+class BitcoinZ(EquihashMixin, Coin):
+    NAME = "BitcoinZ"
+    SHORTNAME = "BTCZ"
+    NET = "mainnet"
+    P2PKH_VERBYTE = bytes.fromhex("1CB8")
+    P2SH_VERBYTES = [bytes.fromhex("1CBD")]
+    WIF_BYTE = bytes.fromhex("80")
+    GENESIS_HASH = ('f499ee3d498b4298ac6a64205b8addb7'
+                    'c43197e2a660229be65db8a4534d75c1')
+    DESERIALIZER = lib_tx.DeserializerZcash
+    TX_COUNT = 171976
+    TX_COUNT_HEIGHT = 81323
+    TX_PER_BLOCK = 3
+    RPC_PORT = 1979
+    REORG_LIMIT = 800
+
 class Hush(EquihashMixin, Coin):
     NAME = "Hush"
     SHORTNAME = "HUSH"
@@ -911,6 +927,22 @@ class Zclassic(EquihashMixin, Coin):
     TX_COUNT_HEIGHT = 68379
     TX_PER_BLOCK = 5
     RPC_PORT = 8023
+    REORG_LIMIT = 800
+
+class Koto(Coin):
+    NAME = "Koto"
+    SHORTNAME = "KOTO"
+    NET = "mainnet"
+    P2PKH_VERBYTE = bytes.fromhex("1836")
+    P2SH_VERBYTES = [bytes.fromhex("183B")]
+    WIF_BYTE = bytes.fromhex("80")
+    GENESIS_HASH = ('6d424c350729ae633275d51dc3496e16'
+                    'cd1b1d195c164da00f39c499a2e9959e')
+    DESERIALIZER = lib_tx.DeserializerZcash
+    TX_COUNT = 158914
+    TX_COUNT_HEIGHT = 67574
+    TX_PER_BLOCK = 3
+    RPC_PORT = 8432
     REORG_LIMIT = 800
 
 class Komodo(KomodoMixin, EquihashMixin, Coin):
@@ -1100,6 +1132,49 @@ class MultiGateway(KomodoMixin, EquihashMixin, Coin):
     REORG_LIMIT = 800
     PEERS = []
 
+class Vote(KomodoMixin, EquihashMixin, Coin):
+    NAME = "Vote"
+    SHORTNAME = "VOTE"
+    NET = "mainnet"
+    TX_COUNT = 100
+    TX_COUNT_HEIGHT = 100
+    TX_PER_BLOCK = 2
+    RPC_PORT = 8177
+    REORG_LIMIT = 800
+    PEERS = []
+
+class Vote2018(KomodoMixin, EquihashMixin, Coin):
+    NAME = "Vote2018"
+    SHORTNAME = "VOTE2018"
+    NET = "mainnet"
+    TX_COUNT = 100
+    TX_COUNT_HEIGHT = 100
+    TX_PER_BLOCK = 2
+    RPC_PORT = 10317
+    REORG_LIMIT = 800
+    PEERS = []
+
+class Beer(KomodoMixin, EquihashMixin, Coin):
+    NAME = "Beer"
+    SHORTNAME = "BEER"
+    NET = "mainnet"
+    TX_COUNT = 18602
+    TX_COUNT_HEIGHT = 4611
+    TX_PER_BLOCK = 4
+    RPC_PORT = 8923
+    REORG_LIMIT = 800
+    PEERS = []
+
+class Pizza(KomodoMixin, EquihashMixin, Coin):
+    NAME = "Pizza"
+    SHORTNAME = "PIZZA"
+    NET = "mainnet"
+    TX_COUNT = 10247
+    TX_COUNT_HEIGHT = 2295
+    TX_PER_BLOCK = 4
+    RPC_PORT = 11116
+    REORG_LIMIT = 800
+    PEERS = []
 
 class Einsteinium(Coin):
     NAME = "Einsteinium"
@@ -1298,7 +1373,6 @@ class Fujicoin(Coin):
                     'a636f70856183086842667a1597714a0')
     ESTIMATE_FEE = 0.001
     RELAY_FEE = 0.001
-    DAEMON = daemon.FakeEstimateFeeDaemon
     TX_COUNT = 170478
     TX_COUNT_HEIGHT = 1521676
     TX_PER_BLOCK = 1
@@ -1432,3 +1506,29 @@ class Feathercoin(Coin):
     PEERS = [
         'electrumx-ch-1.feathercoin.ch s t',
     ]
+
+class Newyorkcoin(AuxPowMixin, Coin):
+    NAME = "Newyorkcoin"
+    SHORTNAME = "NYC"
+    NET = "mainnet"
+    P2PKH_VERBYTE = bytes.fromhex("3c")
+    P2SH_VERBYTES = [bytes.fromhex("16")]
+    WIF_BYTE = bytes.fromhex("bc")
+    GENESIS_HASH = ('5597f25c062a3038c7fd815fe46c67de'
+                    'dfcb3c839fbc8e01ed4044540d08fe48')
+    DAEMON = daemon.LegacyRPCDaemon
+    TX_COUNT = 5161944
+    TX_COUNT_HEIGHT = 3948743
+    TX_PER_BLOCK = 2
+    REORG_LIMIT = 2000
+
+class Bitcore(BitcoinMixin, Coin):
+    NAME = "Bitcore"
+    SHORTNAME = "BTX"
+    DESERIALIZER = lib_tx.DeserializerSegWit
+    GENESIS_HASH = ('604148281e5c4b7f2487e5d03cd60d8e'
+                    '6f69411d613f6448034508cea52e9574')
+    TX_COUNT = 126979
+    TX_COUNT_HEIGHT = 126946
+    TX_PER_BLOCK = 2
+    RPC_PORT = 8556
