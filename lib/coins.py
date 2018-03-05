@@ -1532,3 +1532,14 @@ class Bitcore(BitcoinMixin, Coin):
     TX_COUNT_HEIGHT = 126946
     TX_PER_BLOCK = 2
     RPC_PORT = 8556
+
+class Gacredit(KomodoMixin, EquihashMixin, Coin):
+    NAME = "GACredit"
+    SHORTNAME = "GACREDIT"
+    NET = "mainnet"
+    TX_COUNT = 100
+    TX_COUNT_HEIGHT = 50
+    TX_PER_BLOCK = 2
+    RPC_PORT = 13633
+    REORG_LIMIT = 800
+    PEERS = []
