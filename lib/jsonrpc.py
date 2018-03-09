@@ -409,7 +409,7 @@ class JSONSessionBase(util.LoggedClass):
             if code in (version.PARSE_ERROR, version.INVALID_REQUEST,
                         version.FATAL_ERROR):
                 fatal_log = message
-            elif self.error_count >= 10:
+            elif self.error_count >= 100:
                 fatal_log = 'too many errors, last: {}'.format(message)
             if fatal_log:
                 self.log_info(fatal_log)
