@@ -21,10 +21,6 @@ sudo apt-get install python3-setuptools python3.6 python3.6-dev libleveldb-dev -
 sudo apt-get install python3-pip --yes
 sudo pip3 install multidict
 
-git clone https://github.com/chainmakers/electrumx -b kmdassets
-cd electrumx
-git pull
-
 echo -e "\n\nclass $LCASECOIN(KomodoMixin, EquihashMixin, Coin):" >> lib/coins.py
 echo -e "    NAME = "$LCASECOIN"" >> lib/coins.py
 echo -e "    SHORTNAME = "$COIN"" >> lib/coins.py
