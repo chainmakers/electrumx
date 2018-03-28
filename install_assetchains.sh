@@ -20,9 +20,9 @@ sudo apt-get install python3-pip --yes
 sudo pip3 install multidict
 
 echo -e "\n\nclass $NAME(KomodoMixin, EquihashMixin, Coin):" >> lib/coins.py
-echo -e "    NAME = "$NAME"" >> lib/coins.py
-echo -e "    SHORTNAME = "$COIN"" >> lib/coins.py
-echo -e "    NET = "mainnet"" >> lib/coins.py
+echo -e "    NAME = \"$NAME\"" >> lib/coins.py
+echo -e "    SHORTNAME = \"$COIN\"" >> lib/coins.py
+echo -e "    NET = \"mainnet\"" >> lib/coins.py
 echo -e "    TX_COUNT = 100" >> lib/coins.py
 echo -e "    TX_COUNT_HEIGHT = 50" >> lib/coins.py
 echo -e "    TX_PER_BLOCK = 2" >> lib/coins.py
