@@ -25,16 +25,16 @@ git clone https://github.com/chainmakers/electrumx -b kmdassets
 cd electrumx
 git pull
 
-echo -e "class $LCASECOIN(KomodoMixin, EquihashMixin, Coin):" >> lib/coins.py
-    echo -e "NAME = "$LCASECOIN"" >> lib/coins.py
-    echo -e "SHORTNAME = "$COIN"" >> lib/coins.py
-    echo -e "NET = "mainnet"" >> lib/coins.py
-    echo -e "TX_COUNT = 100" >> lib/coins.py
-    echo -e "TX_COUNT_HEIGHT = 50" >> lib/coins.py
-    echo -e "TX_PER_BLOCK = 2" >> lib/coins.py
-    echo -e "RPC_PORT = $RPCPORTASSET" >> lib/coins.py
-    echo -e "REORG_LIMIT = 800" >> lib/coins.py
-    echo -e "PEERS = []" >> lib/coins.py
+echo -e "\n\nclass $LCASECOIN(KomodoMixin, EquihashMixin, Coin):" >> lib/coins.py
+echo -e "    NAME = "$LCASECOIN"" >> lib/coins.py
+echo -e "    SHORTNAME = "$COIN"" >> lib/coins.py
+echo -e "    NET = "mainnet"" >> lib/coins.py
+echo -e "    TX_COUNT = 100" >> lib/coins.py
+echo -e "    TX_COUNT_HEIGHT = 50" >> lib/coins.py
+echo -e "    TX_PER_BLOCK = 2" >> lib/coins.py
+echo -e "    RPC_PORT = $RPCPORTASSET" >> lib/coins.py
+echo -e "    REORG_LIMIT = 800" >> lib/coins.py
+echo -e "    PEERS = []" >> lib/coins.py
 
 sudo python3.6 setup.py install
 
