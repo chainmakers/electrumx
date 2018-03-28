@@ -33,7 +33,11 @@ mkdir ~/electrumdb_$COIN
 
 sudo touch /etc/electrumx_$COIN.conf
 
-echo "COIN = Komodo" | sudo tee --append /etc/electrumx_$COIN.conf
+foo=$(echo "$COIN" | awk '{print tolower($0)}')
+foo=$(echo "${foo^}")
+echo $foo
+echo "COIN = $foo" | sudo tee --append /etc/electrumx_$COIN.conf
+
 echo "DB_DIRECTORY = /home/$USER/electrumdb_$COIN" | sudo tee --append /etc/electrumx_$COIN.conf
 echo "DAEMON_URL = http://$RPCUSER:$RPCPASSWORD@127.0.0.1:$RPCPORTASSET/" | sudo tee --append /etc/electrumx_$COIN.conf
 echo "RPC_HOST = 127.0.0.1" | sudo tee --append /etc/electrumx_$COIN.conf
