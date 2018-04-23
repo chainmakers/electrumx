@@ -1790,3 +1790,14 @@ class Axe(Dash):
         '''
         import x11_hash
         return x11_hash.getPoWHash(header)
+
+class GLXToken(KomodoMixin, EquihashMixin, Coin):
+    NAME = "GLXToken"
+    SHORTNAME = "GLXT"
+    NET = "mainnet"
+    TX_COUNT = 100
+    TX_COUNT_HEIGHT = 50
+    TX_PER_BLOCK = 2
+    RPC_PORT = 15723
+    REORG_LIMIT = 800
+    PEERS = []
